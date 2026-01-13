@@ -3,46 +3,127 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LazyBuoy — Inside Tag</title>
+  <title>LazyBuoy — What’s the rush?</title>
+  <meta name="description" content="Inside label: garment details, care, and LazyBuoy links." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <main class="wrap">
-    <header class="top">
-      <div class="logo">LazyBuoy</div>
-      <div class="sub">Inside Tag</div>
-    </header>
+    <!-- HERO -->
+    <section class="hero" aria-label="Intro">
+      <div class="hero-inner">
+        <div class="kicker">LAZYBUOY</div>
 
-    <section class="card">
-      <h1>A small note 👋</h1>
-      <p>
-        You’re wearing something we made with care.  
-        Slow down for a sec — you’re here, and that’s enough.
-      </p>
+        <h1 class="type" aria-label="what’s the rush?">
+          <span class="type-line">
+            <span class="type-text" id="typeText"></span><span class="caret" aria-hidden="true"></span>
+          </span>
+        </h1>
+
+        <p class="sub">
+          Inside tag info — made to last, made to be worn.
+        </p>
+
+        <a class="scroll" href="#details" aria-label="Scroll to details">
+          <span>Details</span>
+          <span class="dot" aria-hidden="true"></span>
+        </a>
+      </div>
     </section>
 
-    <section class="card">
-      <h2>Garment details</h2>
-      <ul class="details">
-        <li><span>Piece</span><span>LazyBuoy Tee — Drop 01</span></li>
-        <li><span>Fit</span><span>Relaxed</span></li>
-        <li><span>Fabric</span><span>100% Cotton</span></li>
-        <li><span>Weight</span><span>240 GSM</span></li>
-        <li><span>Print</span><span>Screen print</span></li>
-        <li><span>Care</span><span>Cold wash, inside out. Hang dry.</span></li>
-      </ul>
+    <!-- DETAILS -->
+    <section id="details" class="section">
+      <div class="section-head">
+        <h2>Material & Care</h2>
+        <p>Keep it simple. Treat it gently.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="label">Material</div>
+          <div class="value">100% Cotton</div>
+          <div class="meta">Heavyweight • 240 GSM</div>
+        </div>
+
+        <div class="card">
+          <div class="label">Fit</div>
+          <div class="value">Relaxed</div>
+          <div class="meta">Roomy through body & sleeve</div>
+        </div>
+
+        <div class="card">
+          <div class="label">Wash</div>
+          <div class="value">Cold, inside-out</div>
+          <div class="meta">Gentle cycle • Similar colours</div>
+        </div>
+
+        <div class="card">
+          <div class="label">Dry</div>
+          <div class="value">Hang dry</div>
+          <div class="meta">Avoid tumble to protect print</div>
+        </div>
+      </div>
     </section>
 
-    <section class="card">
-      <h2>Keep in touch</h2>
-      <a class="btn" href="https://instagram.com/lazybuoy" target="_blank" rel="noopener">
-        Follow @lazybuoy
-      </a>
+    <!-- ABOUT -->
+    <section class="section">
+      <div class="section-head">
+        <h2>About this tee</h2>
+        <p>Less hustle. More presence.</p>
+      </div>
+
+      <div class="card wide">
+        <p class="body">
+          This piece is part of LazyBuoy — a reminder to slow down, stay grounded,
+          and make space for community. Wear it into your everyday. Let it soften over time.
+        </p>
+        <div class="fine">
+          Tip: wash less, air more. Your tee (and the planet) will thank you.
+        </div>
+      </div>
     </section>
 
-    <footer class="footer">
-      <small>© LazyBuoy • Made for the community</small>
-    </footer>
+    <!-- LINKS -->
+    <section class="section last">
+      <div class="section-head">
+        <h2>Find us</h2>
+        <p>Music, events, merch, ideas.</p>
+      </div>
+
+      <div class="links">
+        <a class="btn" href="https://instagram.com/lazybuoy" target="_blank" rel="noopener">
+          Instagram
+        </a>
+        <a class="btn ghost" href="https://lazybuoy.net" target="_blank" rel="noopener">
+          lazybuoy.net
+        </a>
+      </div>
+
+      <footer class="footer">
+        <div class="rule"></div>
+        <small>© LazyBuoy</small>
+      </footer>
+    </section>
   </main>
+
+  <script>
+    // Type-on text animation (simple + premium)
+    const text = "what’s the rush?";
+    const el = document.getElementById("typeText");
+    let i = 0;
+
+    function type() {
+      if (i <= text.length) {
+        el.textContent = text.slice(0, i);
+        i++;
+        requestAnimationFrame(() => setTimeout(type, i < 6 ? 55 : 80));
+      }
+    }
+    type();
+  </script>
 </body>
 </html>
